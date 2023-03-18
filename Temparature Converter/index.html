@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temparature Converter</title>
+    <style>
+        body {
+            padding: 50px 100px;
+        }
+
+        #container {
+            background-color: rgb(25, 1, 27);
+            padding: 150px 50px;
+            text-align: center;
+
+
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .input_box {
+            font-weight: 800;
+            font-size: large;
+        }
+
+        .input {
+            display: inline-block;
+        }
+
+        label{
+            color: aliceblue;
+            font-size: 22px;
+            margin: 10px;
+      
+        }
+
+        @media(max-width:540px){
+            #container{
+             background-color: rgb(32, 32, 46);
+            }
+            .input_box{
+                width: 50%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Temparature Converter</h1>
+    <div id="container">
+
+        <div class="input">
+            <label for="inp1">Celsius</label> <br><br>
+            <input type="number" value="0" id="cel" class="input_box" />
+
+        </div>
+        <div class="input">
+            <label for="inp2">Fahrenheit</label><br><br>
+            <input type="number" value="32" id="fah" class="input_box" />
+        </div>
+
+    </div>
+
+    <script>
+        //selected both input tag
+        var cel=document.getElementById("cel") 
+        var fah=document.getElementById("fah")
+
+        // adding event listener 
+        cel.addEventListener("input",function(){
+         
+    let c=this.value;   //getting the value of input 
+    let f=((c * 9/5) + 32).toFixed(4) ;
+    fah.value=f; 
+
+        })
+        
+        fah.addEventListener("input",function(){
+       let F=this.value; //getting the value of input
+        let c=((F - 32) * 5/9).toFixed(4); //converting F to c
+        cel.value=c; //putting that c in F
+        // console.log(f)
+        })
+    </script>
+</body>
+
+</html>
